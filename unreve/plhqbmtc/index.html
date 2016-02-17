@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>OTONO ...ê..</title>
+
+  
+  
+  <style>
+body {
+				margin: 0;
+				font-family: arial, helvetica, sans-serif;
+			}
+			a {
+				color: #FFF;
+			}
+			h2 {
+				font-size: 20px;
+				font-weight: normal;
+			}
+			li {
+				list-style: none;
+			}
+			dl {
+
+			}
+			dt {
+				float: left;
+				width: 160px;
+			}
+			dd {
+				margin: 0 0 10px 160px;
+			};
+.video-background {
+				position: absolute;
+				top: 0;
+				left: 0;
+				overflow: hidden;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+			}
+			.video-background video {
+				min-height: 100%; 
+				min-width:100%; 
+				loop: true;
+			}
+			#page {
+				position: absolute;
+				top: 0;
+				left: center;
+				z-index: 1;
+				width: 800;
+				color: #FFF;
+				background: transparent url(themes/background.png) repeat top left;
+				border-radius: 5px;
+				margin: 30px;
+			}
+			#main {
+				padding: 10px;
+				margin: 10px 0;
+			}
+  </style>
+  
+  <script src="external/jquery.js"></script>
+  
+  <script src="script/jquery.videobackground.js"></script>
+  
+  <script>
+			$(document).ready(function() {
+				$('dl').toggle();
+				$('h2').bind('click', function(event) {
+					event.preventDefault();
+					$(this).next('dl').slideToggle(500, function() {
+						$('.video-background').videobackground('resize');
+					});
+				});
+				$('body').prepend('<div class="video-background"></div>');
+				$('.video-background').videobackground({
+					videoSource: [['back.mp4', 'video/mp4'],
+						['back.webm', 'video/webm'], 
+						['back.ogv', 'video/ogg']], 
+					controlPosition: '#main',
+					poster: 'back.jpg',
+					loadedCallback: function() {
+						$(this).videobackground('mute');
+					loop: 'true';
+					}
+				});
+			});
+		</script>
+</head><body>
+<br>
+
+<div id="page">
+<div id="page-group">
+<div id="content">
+<div id="main" role="main">
+<table style="text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="3" style="vertical-align: top; text-align: right;"><img style="width: 600px; height: 571px;" alt="COVER" src="cover.jpg"><br>
+      </td>
+      <td style="vertical-align: top; width: 600px; text-align: left; color: white;"><big><span style="font-weight: bold; font-family: Helvetica,Arial,sans-serif;">Un
+rêve - </span></big><span class="null"><big><span style="font-weight: bold; font-family: Helvetica,Arial,sans-serif;">Por
+la hierba que besa mis tobillos cansados</span></big><br>
+      <br>
+      <br>
+      </span></td>
+    </tr>
+    <tr align="center">
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>
+<div id="aside" class="aside" role="complementary"> </div>
+</div>
+</div>
+</div>
+
+<br>
+
+<br>
+
+</body></html>
